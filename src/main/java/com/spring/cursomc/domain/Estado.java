@@ -1,5 +1,7 @@
 package com.spring.cursomc.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -8,15 +10,19 @@ import java.util.Objects;
 
 @Entity
 public class Estado implements Serializable {
-    private static final long serialVersioUID = 1L;
+    private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private  String nome;
 
+    @JsonBackReference
     @OneToMany(mappedBy = "estado")
     private List<Cidade> cidades = new ArrayList<>();
+
+    public Estado() {
+    }
 
     public Estado(Integer id, String nome) {
         this.id = id;
