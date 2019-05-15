@@ -1,7 +1,6 @@
 package com.spring.cursomc.domain;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.spring.cursomc.domain.enums.TipoCliente;
 
 import javax.persistence.*;
@@ -20,7 +19,7 @@ public class Cliente implements Serializable {
     private String cpfOuCnpj;
     private Integer tipoCliente;
 
-    @JsonManagedReference
+    @JsonIgnore
     @OneToMany(mappedBy = "cliente")
     private List<Endereco> endereco = new ArrayList<>();
 
@@ -28,7 +27,7 @@ public class Cliente implements Serializable {
     @CollectionTable(name="TELEFONE")
     private Set<String> telefones = new HashSet<>();
 
-    @JsonBackReference
+    @JsonIgnore
     @OneToMany(mappedBy = "cliente")
     private List<Pedido> pedido = new ArrayList<>();
 

@@ -1,7 +1,6 @@
 package com.spring.cursomc.domain;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -18,7 +17,7 @@ public class Categoria implements Serializable  {
     private Integer id;
     private String name;
 
-    @JsonManagedReference
+    @JsonIgnore
     @ManyToMany(mappedBy = "categorias")
     private List<Produto> produtos = new ArrayList<>();
 

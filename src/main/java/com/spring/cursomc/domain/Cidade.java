@@ -1,7 +1,7 @@
 package com.spring.cursomc.domain;
 
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -17,7 +17,7 @@ public class Cidade implements Serializable {
     private String nome;
 
 
-   @JsonManagedReference
+   @JsonIgnore
    @ManyToOne
    @JoinColumn(name="estado_id")
     private Estado estado;
