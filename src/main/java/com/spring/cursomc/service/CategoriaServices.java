@@ -1,15 +1,19 @@
 package com.spring.cursomc.service;
 
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort.Direction;
+import org.springframework.stereotype.Service;
+
 import com.spring.cursomc.domain.Categoria;
 import com.spring.cursomc.repositories.CategoriaRepository;
 import com.spring.cursomc.service.exception.DataIntegrityException;
 import com.spring.cursomc.service.exception.ObjectNotFoundException;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DataIntegrityViolationException;
-import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 public class CategoriaServices {
@@ -46,5 +50,11 @@ public class CategoriaServices {
 
     public List<Categoria> findAll() {
         return repo.findAll();
+    }
+    
+    public Page <Categoria> findPage(Integer page, Integer linesPerPage, String orderbY, String direction) {
+    	PageRequest pageRequest = new PageRequest(page, linesPerPage, Direction.valueOf(direction), orderbY);
+    	return repo.findAll(pageRequest);
+    	
     }
 }
