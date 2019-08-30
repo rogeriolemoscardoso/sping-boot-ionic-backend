@@ -3,7 +3,7 @@ package com.spring.cursomc.service;
 
 import java.util.List;
 
-import com.spring.cursomc.CategoriaDTO;
+import com.spring.cursomc.dto.CategoriaDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.data.domain.Page;
@@ -52,11 +52,11 @@ public class CategoriaServices {
     public List<Categoria> findAll() {
         return repo.findAll();
     }
-    
-    public Page <Categoria> findPage(Integer page, Integer linesPerPage, String orderbY, String direction) {
-    	PageRequest pageRequest = new PageRequest(page, linesPerPage, Direction.valueOf(direction), orderbY);
-    	return repo.findAll(pageRequest);
-    	
+
+    public Page<Categoria> findPage(Integer page, Integer linesPerPage, String orderbY, String direction) {
+        PageRequest pageRequest = new PageRequest(page, linesPerPage, Direction.valueOf(direction), orderbY);
+        return repo.findAll(pageRequest);
+
     }
 
     public Categoria fromDTO(CategoriaDTO ObjDto) {

@@ -1,4 +1,4 @@
-package com.spring.cursomc;
+package com.spring.cursomc.dto;
 
 import com.spring.cursomc.domain.Categoria;
 import org.hibernate.validator.constraints.Length;
@@ -17,7 +17,6 @@ CategoriaDTO  implements Serializable {
     private String nome;
 
     public CategoriaDTO () {
-
     }
 
     public CategoriaDTO (Categoria categoria) {
