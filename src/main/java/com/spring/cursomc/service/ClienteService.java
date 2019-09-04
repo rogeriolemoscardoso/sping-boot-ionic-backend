@@ -30,8 +30,14 @@ public class ClienteService {
     }
 
     public Cliente update(Cliente obj) {
-        find(obj.getId());
+        Cliente  newObj = find(obj.getId());
+        updateData(newObj,obj);
         return clienteRepository.save(obj);
+    }
+
+    private void updateData(Cliente newObj, Cliente obj) {
+        newObj.setNome(obj.getNome());
+        newObj.setEmail(obj.getEmail());
     }
 
     public void delete(Integer id) {
@@ -39,7 +45,7 @@ public class ClienteService {
         try {
             clienteRepository.delete(id);
         } catch (DataIntegrityViolationException e) {
-            throw new DataIntegrityException("Não é possível excluir uma Cliente que possui produto.");
+            throw new DataIntegrityException("Não é possível excluir porque há entidades relacionadas.");
         }
     }
 
@@ -54,6 +60,6 @@ public class ClienteService {
     }
 
     public Cliente fromDTO(ClienteDTO ObjDto) {
-        throw new UnsupportedOperationException();
+        return new Cliente(ObjDto.getId(),ObjDto.getNome(),ObjDto.getEmail(),null,null);
     }
 }
