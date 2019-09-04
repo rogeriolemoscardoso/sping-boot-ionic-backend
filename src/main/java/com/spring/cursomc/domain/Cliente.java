@@ -19,7 +19,7 @@ public class Cliente implements Serializable {
     private String cpfOuCnpj;
     private Integer tipoCliente;
 
-        @OneToMany(mappedBy = "cliente", cascade=CascadeType.ALL)
+    @OneToMany(mappedBy = "cliente")
     private List<Endereco> endereco = new ArrayList<>();
 
     @ElementCollection
