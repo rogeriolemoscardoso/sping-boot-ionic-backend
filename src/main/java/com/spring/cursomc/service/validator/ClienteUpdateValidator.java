@@ -1,12 +1,9 @@
 package com.spring.cursomc.service.validator;
 
 import com.spring.cursomc.domain.Cliente;
-import com.spring.cursomc.domain.enums.TipoCliente;
 import com.spring.cursomc.dto.ClienteDTO;
-import com.spring.cursomc.dto.ClienteNewDTO;
 import com.spring.cursomc.repositories.ClienteRepository;
 import com.spring.cursomc.resources.exception.FieldMessage;
-import com.spring.cursomc.service.validator.utils.BR;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.HandlerMapping;
 
@@ -16,7 +13,6 @@ import javax.validation.ConstraintValidatorContext;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.logging.Handler;
 
 public class ClienteUpdateValidator implements ConstraintValidator<ClienteUpdate, ClienteDTO> {
     @Autowired

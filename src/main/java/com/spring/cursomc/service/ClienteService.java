@@ -75,7 +75,6 @@ public class ClienteService {
     public Page<Cliente> findPage(Integer page, Integer linesPerPage, String orderbY, String direction) {
         PageRequest pageRequest = new PageRequest(page, linesPerPage, Sort.Direction.valueOf(direction), orderbY);
         return clienteRepository.findAll(pageRequest);
-
     }
 
     public Cliente fromDTO(ClienteDTO ObjDto) {

@@ -19,20 +19,6 @@ public class BR {
     }
 
     /**
-     * Valida CPF
-     *
-     * @param ssn
-     * @return
-     */
-    public static boolean isValidCPF(final String ssn) {
-        if ((ssn == null) || (ssn.length() != 11) || ssn.matches(ssn.charAt(0) + "{11}")) return false;
-
-        final Integer digit1 = calculate(ssn.substring(0, 9), weightSsn);
-        final Integer digit2 = calculate(ssn.substring(0, 9) + digit1, weightSsn);
-        return ssn.equals(ssn.substring(0, 9) + digit1.toString() + digit2.toString());
-    }
-
-    /**
      * Valida CNPJ
      *
      * @param tin
@@ -44,5 +30,19 @@ public class BR {
         final Integer digit1 = calculate(tin.substring(0, 12), weightTin);
         final Integer digit2 = calculate(tin.substring(0, 12) + digit1, weightTin);
         return tin.equals(tin.substring(0, 12) + digit1.toString() + digit2.toString());
+    }
+
+    /**
+     * Valida CPF
+     *
+     * @param ssn
+     * @return
+     */
+    public static boolean isValidCPF(final String ssn) {
+        if ((ssn == null) || (ssn.length() != 11) || ssn.matches(ssn.charAt(0) + "{11}")) return false;
+
+        final Integer digit1 = calculate(ssn.substring(0, 9), weightSsn);
+        final Integer digit2 = calculate(ssn.substring(0, 9) + digit1, weightSsn);
+        return ssn.equals(ssn.substring(0, 9) + digit1.toString() + digit2.toString());
     }
 }
