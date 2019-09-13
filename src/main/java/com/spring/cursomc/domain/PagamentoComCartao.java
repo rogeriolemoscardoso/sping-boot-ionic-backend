@@ -1,9 +1,11 @@
 package com.spring.cursomc.domain;
 
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.spring.cursomc.domain.enums.EstadoPagamento;
 
 import javax.persistence.Entity;
 
+@JsonTypeName("pagamentoComCartao")
 @Entity
 public class PagamentoComCartao extends Pagamento{
     private static final long serialVersionUID = 1L;
