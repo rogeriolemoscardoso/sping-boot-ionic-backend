@@ -24,7 +24,7 @@ public class ProdutoResource {
         return  ResponseEntity.ok().body(obj);
     }
 
-    @RequestMapping(value = "/page", method = RequestMethod.GET)
+    @RequestMapping(method = RequestMethod.GET)
     public ResponseEntity<Page<ProdutoDTO>> findPage(
             @RequestParam(value = "nome", defaultValue = "") String nome,
             @RequestParam( value = "categorias", defaultValue = "") String categorias,
