@@ -30,10 +30,10 @@ public class Produto implements Serializable {
     public Produto() {
     }
 
-    public Produto(Integer id, String nome, Double preço) {
+    public Produto(Integer id, String nome, Double preco) {
         this.id = id;
         this.nome = nome;
-        this.preco = preço;
+        this.preco = preco;
     }
 
     @JsonIgnore
@@ -69,12 +69,12 @@ public class Produto implements Serializable {
         this.categorias = categorias;
     }
 
-    public Double getPreço() {
+    public Double getPreco() {
         return preco;
     }
 
-    public void setPreço(Double preço) {
-        this.preco = preço;
+    public void setPreco(Double preco) {
+        this.preco = preco;
     }
 
     public Set<ItemPedido> getItens() {
