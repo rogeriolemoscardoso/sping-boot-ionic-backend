@@ -1,6 +1,8 @@
 package com.spring.cursomc.config;
 
 import com.spring.cursomc.service.DBService;
+import com.spring.cursomc.service.EmailService;
+import com.spring.cursomc.service.MockEmailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
